@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dirección A · Colofón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Dirección A — Colofón: la página blanca de un libro bien compuesto. Retícula de libro, márgenes generosos, la portada como única fuente de color. */
+:root{
+  --paper:#FFFFFF; --paper-2:#F5F6F2; --ink:#1C1C1B; --ink-2:#4F534B; --rule:#DFE2DA;
+  --olive:#487434; --leaf:#70B12C;
+  --display:"Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+  --serif:"Libre Caslon Text", Georgia, serif;
+  --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --gutter:max(20px, env(safe-area-inset-left,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+
+/* back link to the chooser */
+.back{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ink);color:var(--paper);text-decoration:none;padding:8px 12px;border-radius:999px;font:500 12px var(--sans)}
+
+/* promo bar */
+.promo{background:var(--ink);color:#fff;text-align:center;padding:9px 16px;font:500 12.5px/1.4 var(--sans);letter-spacing:.01em}
+.promo b{color:var(--leaf);font-weight:600}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;gap:32px;height:68px}
+.nav img{height:26px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 0 0 auto;padding:0;font-weight:500;font-size:14.5px}
+.nav ul a{text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1)}
+.cart{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:999px;padding:7px 14px;background:none;font:500 14px var(--sans);cursor:pointer;color:var(--ink)}
+.cart .n{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:50%;background:var(--olive);color:#fff;font:600 11px var(--sans)}
+@media (max-width:860px){.nav ul{display:none}.cart{margin-left:auto}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:72px 56px}
+.eyebrow{color:var(--olive);display:flex;gap:12px;align-items:center}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1{font:400 clamp(48px,7.4vw,104px)/.95 var(--display);letter-spacing:-.02em;margin:22px 0 26px;text-wrap:balance}
+h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .line>span{display:block}
+h1 em{font-family:var(--serif);font-style:italic;color:var(--olive);font-size:.86em}
+.lede{font:400 18px/1.65 var(--serif);color:var(--ink-2);max-width:46ch;margin:0 0 34px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;font:600 15px var(--sans);text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:background .3s,color .3s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--olive);border-color:var(--olive)}
+.btn.ghost{background:none;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn svg{transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+
+.stage{position:relative;height:clamp(380px,46vw,560px);perspective:1400px}
+.stage .bk{position:absolute;left:50%;top:50%;width:clamp(150px,17vw,230px);aspect-ratio:2/3;margin:calc(clamp(150px,17vw,230px) * -.75) 0 0 calc(clamp(150px,17vw,230px) * -.5);transform-origin:50% 120%;will-change:transform}
+.bk img{width:100%;height:100%;object-fit:cover;border-radius:2px 4px 4px 2px;box-shadow:0 1px 0 rgba(0,0,0,.08),0 24px 40px -18px rgba(28,28,27,.45),0 10px 16px -10px rgba(28,28,27,.3)}
+.bk::after{content:"";position:absolute;inset:0;border-radius:2px 4px 4px 2px;background:linear-gradient(90deg,rgba(0,0,0,.18) 0,rgba(255,255,255,.18) 2.5%,transparent 6%);pointer-events:none}
+.stage-caption{position:absolute;left:0;right:0;bottom:-6px;text-align:center;color:var(--ink-2)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding-block:40px 24px;gap:12px}
+  .stage{height:360px}
+}
+
+/* sellos */
+.sellos{border-block:1px solid var(--rule);padding-block:26px}
+.sellos .wrap{display:flex;align-items:center;gap:44px;flex-wrap:wrap}
+.sellos .label{color:var(--ink-2)}
+.sellos img{height:26px;width:auto;opacity:.86;transition:opacity .3s}
+.sellos img:hover{opacity:1}
+.sellos .reto{height:42px}
+
+/* catalog */
+.cat{padding-block:88px 40px}
+.cat-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+h2{font:400 clamp(36px,4.6vw,60px)/1 var(--display);margin:10px 0 0;letter-spacing:-.015em}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--rule);background:none;border-radius:999px;padding:8px 16px;font:500 14px var(--sans);cursor:pointer;color:var(--ink);transition:all .25s}
+.tab:hover{border-color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:48px 32px}
+@media (max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 16px}.card h3{font-size:17px}.card .cv{padding:14px 14px 0}}
+.card{display:flex;flex-direction:column;gap:14px}
+.card .cv{position:relative;aspect-ratio:2/3;background:var(--paper-2);display:grid;place-items:end center;padding:22px 22px 0;overflow:hidden;border-radius:2px}
+.card .cv img{width:100%;height:auto;max-height:100%;object-fit:contain;transform:translateY(8px);transition:transform .5s var(--ease);box-shadow:0 18px 30px -16px rgba(28,28,27,.5)}
+.card:hover .cv img{transform:translateY(-4px)}
+.card .meta{display:flex;justify-content:space-between;gap:12px;color:var(--olive)}
+.card h3{font:400 21px/1.2 var(--serif);margin:0;text-wrap:balance}
+.card .au{color:var(--ink-2);font-size:14.5px;margin:-6px 0 0}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px;border-top:1px solid var(--rule)}
+.price{font:500 15px var(--sans);font-variant-numeric:tabular-nums}
+.price .ph{font:500 12px var(--mono);color:var(--ink-2);background:var(--paper-2);padding:2px 6px;border-radius:3px}
+.add{border:none;background:none;font:600 14px var(--sans);color:var(--ink);cursor:pointer;display:inline-flex;gap:6px;align-items:center;padding:6px 0}
+.add:hover{color:var(--olive)}
+
+/* spotlight */
+.spot{background:var(--paper-2);margin-top:72px}
+.spot .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;padding-block:96px}
+.spot .big{justify-self:center;width:min(360px,80%);perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .2s ease-out;position:relative}
+.tilt img{box-shadow:0 40px 60px -30px rgba(28,28,27,.55)}
+.tilt .glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.35),transparent 55%);mix-blend-mode:soft-light;opacity:0;transition:opacity .3s}
+.tilt:hover .glare{opacity:1}
+blockquote{margin:22px 0;font:italic 400 clamp(26px,3vw,38px)/1.25 var(--serif);text-wrap:balance}
+.spot p{font:400 17px/1.7 var(--serif);color:var(--ink-2);max-width:52ch}
+.colofon{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:26px 0 30px;color:var(--ink-2)}
+.colofon dt{color:var(--olive)}
+.colofon dd{margin:0;font:400 14px var(--sans);color:var(--ink)}
+@media (max-width:860px){.spot .wrap{grid-template-columns:1fr;padding-block:64px;gap:40px}}
+
+footer{padding-block:56px 80px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;gap:24px 48px;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:32px}
+footer img{height:22px;width:auto}
+
+.flyer{position:fixed;z-index:60;pointer-events:none;border-radius:2px;box-shadow:0 12px 24px -8px rgba(0,0,0,.4)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="back" href="index.html">← Direcciones</a>
+<div class="promo">Envíos a toda Venezuela y Latinoamérica · Paga con <b>Pago Móvil, Zelle, Binance Pay o PayPal</b></div>
+<header>
+  <nav class="wrap nav" aria-label="Principal">
+    <a href="#" aria-label="Grupo Olivo, inicio"><img src="img/logo-go-color.png" alt="Grupo Olivo" width="123" height="26"></a>
+    <ul><li><a href="#catalogo">Libros</a></li><li><a href="#">Autores</a></li><li><a href="#">Sellos</a></li><li><a href="#">Servicios</a></li><li><a href="#">Concursos</a></li><li><a href="#">Nosotros</a></li></ul>
+    <button class="cart" id="cart" aria-label="Carrito">Carrito <span class="n" id="count">0</span></button>
+  </nav>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <div class="eyebrow mono">Editorial independiente · desde 2016</div>
+    <h1><span class="line"><span>Libros pensados</span></span><span class="line"><span>en su <em>lector.</em></span></span></h1>
+    <p class="lede">Una editorial con tres sellos de publicación, creciendo para llevar más libros de Venezuela al mundo.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#catalogo">Explorar el catálogo <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a class="btn ghost" href="#">Publica con nosotros</a>
+    </div>
+  </div>
+  <div class="stage" id="stage" aria-label="Portadas destacadas">
+    <div class="bk"><img src="img/soledad.webp" alt="Soledad, ¿una cura o locura?"></div>
+    <div class="bk"><img src="img/anecdotas.webp" alt="Anécdotas de una viajera del tercer mundo"></div>
+    <div class="bk"><img src="img/caso-indefendible.webp" alt="Un caso indefendible"></div>
+    <div class="bk"><img src="img/con-sentido.webp" alt="Con sentido"></div>
+    <div class="bk"><img src="img/fleur.webp" alt="Fleur"></div>
+    <div class="stage-caption mono">Del catálogo 2026</div>
+  </div>
+</section>
+
+<section class="sellos" aria-label="Sellos editoriales">
+  <div class="wrap">
+    <span class="label mono">Sellos editoriales</span>
+    <img src="img/logo-tucoach.png" alt="tucoach.go">
+    <img src="img/logo-alita.png" alt="Alita">
+    <img class="reto" src="img/logo-reto-negro.png" alt="Reto Escritor">
+  </div>
+</section>
+
+<section class="wrap cat" id="catalogo">
+  <div class="cat-head">
+    <div><div class="eyebrow mono">Catálogo</div><h2>Del catálogo</h2></div>
+    <div class="tabs" role="group" aria-label="Filtrar por sello">
+      <button class="tab" aria-pressed="true" data-f="all">Todos</button>
+      <button class="tab" aria-pressed="false" data-f="tucoach">tucoach.go</button>
+      <button class="tab" aria-pressed="false" data-f="alita">Alita</button>
+      <button class="tab" aria-pressed="false" data-f="reto">Reto Escritor</button>
+      <button class="tab" aria-pressed="false" data-f="indep">Independientes</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="spot">
+  <div class="wrap">
+    <div class="big"><div class="tilt" id="tilt"><img src="img/fleur.webp" alt="Portada de Fleur, de Florencia Frezza"><div class="glare"></div></div></div>
+    <div>
+      <div class="eyebrow mono">Sello Alita</div>
+      <blockquote>«Porque los cuentos no son sólo cuentos.»</blockquote>
+      <p>Seguramente conoces el cuento de la zapatilla de cristal, el príncipe y el final feliz. ¿Pero qué pensarías si te dijeran que la historia está mal y que la Cenicienta no es tan buena como parece?</p>
+      <dl class="colofon mono">
+        <dt>Título</dt><dd>Fleur</dd>
+        <dt>Autora</dt><dd>Florencia Frezza</dd>
+        <dt>ISBN</dt><dd>9807804221</dd>
+        <dt>Precio</dt><dd><span class="price"><span class="ph">[PRECIO]</span></span></dd>
+      </dl>
+      <div class="ctas"><button class="btn primary" data-add="fleur">Agregar al carrito</button><a class="btn ghost" href="#">También en Amazon</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><img src="img/logo-go-color.png" alt="Grupo Olivo"><span>Afiliada a la Cámara Venezolana del Libro desde 2018</span><span>editorialgrupoolivo@gmail.com · +58 414 8680195</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const BOOKS=[
+ {id:"fleur",t:"Fleur",a:"Florencia Frezza",s:"alita",sl:"Alita"},
+ {id:"21-preguntas",t:"21 preguntas para conquistarte",a:"Jemmy Lee",s:"alita",sl:"Alita"},
+ {id:"con-sentido",t:"Con sentido",a:"José Espósito",s:"tucoach",sl:"tucoach.go"},
+ {id:"lider-coach",t:"Líder Coach",a:"Norberto Peña",s:"tucoach",sl:"tucoach.go"},
+ {id:"poder-del-fee",t:"El poder del fee",a:"Jennifer Fernández",s:"tucoach",sl:"tucoach.go"},
+ {id:"horror-emprender",t:"El horror de emprender",a:"Rafa Solbas",s:"tucoach",sl:"tucoach.go"},
+ {id:"anecdotas",t:"Anécdotas de una viajera del tercer mundo",a:"Lissette Van Der Biest",s:"reto",sl:"Reto Escritor"},
+ {id:"soledad",t:"Soledad, ¿una cura o locura?",a:"Zuleima Virguez",s:"reto",sl:"Reto Escritor"},
+ {id:"escribir-para-sanar",t:"Escribir para sanar",a:"18 autoras",s:"reto",sl:"Reto Escritor"},
+ {id:"extraordinario",t:"Descubre lo extraordinario en ti",a:"Mariene Piñero",s:"reto",sl:"Reto Escritor"},
+ {id:"coletepelo",t:"Historias a Coletepelo",a:"Irene Carrasquero",s:"reto",sl:"Reto Escritor"},
+ {id:"alambre",t:"Al cruzar el alambre de púas",a:"Esmeralda Villanueva",s:"reto",sl:"Reto Escritor"},
+ {id:"caso-indefendible",t:"Un caso indefendible",a:"José Custodio Sánchez Morante",s:"indep",sl:"Independiente"},
+ {id:"caso-imposible",t:"Un caso imposible",a:"José Custodio Sánchez Morante",s:"indep",sl:"Independiente"},
+ {id:"van-gogh",t:"Las sombras de Vincent van Gogh",a:"Luis Manuel Marcano",s:"indep",sl:"Independiente"},
+ {id:"por-si-me-muero",t:"Por si me muero sin que lo sepas",a:"María Elena Fernández-Morán Spear",s:"indep",sl:"Independiente"},
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=BOOKS.map(b=>`<article class="card" data-s="${b.s}">
+  <div class="cv"><img src="img/${b.id}.webp" alt="Portada de ${b.t}" loading="lazy"></div>
+  <div class="meta mono"><span>${b.sl}</span></div>
+  <h3>${b.t}</h3><p class="au">${b.a}</p>
+  <div class="row"><span class="price">US$ <span class="ph">[PRECIO]</span></span><button class="add" data-add="${b.id}">Agregar +</button></div>
+</article>`).join('');
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const count=document.getElementById('count'), cartBtn=document.getElementById('cart');
+let n=0;
+
+/* Fan of covers */
+const bks=[...document.querySelectorAll('.stage .bk')];
+const unit=()=>Math.min(58,document.getElementById('stage').clientWidth/13);
+const fan=(spread)=>bks.map((el,i)=>{const k=i-(bks.length-1)/2;return{el,x:k*spread*unit(),r:k*spread*9,y:Math.abs(k)*spread*14}});
+function placeFan(spread){fan(spread).forEach(({el,x,r,y})=>{el.style.transform=`translate(${x}px,${y}px) rotate(${r}deg)`})}
+
+if(!reduce && window.gsap){
+  gsap.registerPlugin(ScrollTrigger,Flip);
+  const lenis=new Lenis({lerp:.1});
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+
+  const tl=gsap.timeline({defaults:{ease:"expo.out"}});
+  tl.from('h1 .line>span',{yPercent:110,duration:1.2,stagger:.12})
+    .from('.eyebrow, .lede, .ctas',{y:16,opacity:0,duration:.9,stagger:.08},"-=.9")
+    .from(bks,{y:240,rotation:0,x:0,duration:1.3,stagger:.07,ease:"power4.out"},"-=1.1")
+    .add(()=>{},"<");
+  // fan out after rise
+  fan(1).forEach(({el,x,r,y},i)=>tl.to(el,{x,y,rotation:r,duration:1.1,ease:"expo.out"},1.0+i*.04));
+  // scroll: fan widens then gently closes
+  ScrollTrigger.create({trigger:'#stage',start:'top 20%',end:'bottom top',scrub:.6,onUpdate:s=>{placeFan(1+s.progress*.6); gsap.set('#stage',{y:s.progress*-60})}});
+
+  // stage hover: lift hovered cover
+  bks.forEach(el=>{
+    el.addEventListener('mouseenter',()=>gsap.to(el.querySelector('img'),{y:-26,duration:.5,ease:"power3.out"}));
+    el.addEventListener('mouseleave',()=>gsap.to(el.querySelector('img'),{y:0,duration:.6,ease:"power3.out"}));
+  });
+
+  // section reveals (from a visible state: small offset only)
+  gsap.utils.toArray('.card').forEach((c,i)=>gsap.from(c,{y:40,duration:1,ease:"expo.out",scrollTrigger:{trigger:c,start:"top 95%"}}));
+  gsap.from('.spot blockquote',{y:30,duration:1.2,ease:"expo.out",scrollTrigger:{trigger:'.spot',start:'top 70%'}});
+}else{placeFan(1)}
+
+/* Filter with Flip */
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed',t===tab));
+  const f=tab.dataset.f, cards=[...grid.children];
+  const state=window.Flip&&!reduce?Flip.getState(cards):null;
+  cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.s===f));
+  if(state) Flip.from(state,{duration:.7,ease:"power3.inOut",absolute:true,
+    onEnter:els=>gsap.fromTo(els,{opacity:0,scale:.92},{opacity:1,scale:1,duration:.5}),
+    onLeave:els=>gsap.to(els,{opacity:0,scale:.92,duration:.35})});
+  ScrollTrigger&&ScrollTrigger.refresh();
+}));
+
+/* Fly to cart */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-add]'); if(!b) return;
+  n++; const img=(b.closest('.card')||document.querySelector('.spot')).querySelector('img');
+  if(reduce||!window.gsap||!img){count.textContent=n;return}
+  const r=img.getBoundingClientRect(), c=cartBtn.getBoundingClientRect();
+  const fl=img.cloneNode(); fl.className='flyer'; Object.assign(fl.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
+  document.body.appendChild(fl);
+  gsap.to(fl,{x:c.left+c.width/2-r.left-r.width/2,y:c.top+c.height/2-r.top-r.height/2,scale:.08,rotation:-14,duration:.9,ease:"power3.in",onComplete:()=>{fl.remove();count.textContent=n;gsap.fromTo(count,{scale:1.7},{scale:1,duration:.6,ease:"elastic.out(1,.4)"})}});
+});
+
+/* Tilt + glare */
+const tilt=document.getElementById('tilt');
+if(fine&&!reduce){tilt.addEventListener('pointermove',e=>{const r=tilt.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+  tilt.style.transform=`rotateY(${(px-.5)*16}deg) rotateX(${(.5-py)*12}deg)`;tilt.style.setProperty('--gx',px*100+'%');tilt.style.setProperty('--gy',py*100+'%')});
+  tilt.addEventListener('pointerleave',()=>tilt.style.transform='')}
+</script>
+</body>
+</html>

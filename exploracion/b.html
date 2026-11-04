@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dirección B · Tinta verde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+/* Dirección B — Tinta verde: el verde del logo como campo entero, tipografía de cartel, las portadas en movimiento. Bandas de color a sangre. */
+:root{
+  --olive:#487434; --olive-deep:#2F4D22; --leaf:#70B12C; --ink:#1C1C1B; --ink-2:#262624; --bone:#F3F4EE; --mist:#B9C2B0;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --sans:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"Martian Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:clip}
+body{background:var(--ink);color:var(--bone);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font:400 11px/1.4 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.back{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--bone);color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:999px;font:500 12px var(--sans)}
+
+.promo{background:var(--leaf);color:var(--ink);padding:9px 16px;text-align:center;font:500 12.5px var(--sans)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--olive);transition:background .4s}
+header.dark{background:var(--ink)}
+.nav{display:flex;align-items:center;gap:28px;height:70px}
+.nav img{height:24px;width:auto}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;text-decoration:none;font:500 14px var(--sans);padding:8px 14px;border-radius:999px;transition:background .25s}
+.nav ul a:hover{background:rgba(255,255,255,.12)}
+.cart{display:inline-flex;gap:10px;align-items:center;border:none;background:var(--bone);color:var(--ink);border-radius:999px;padding:9px 16px;font:600 14px var(--sans);cursor:pointer}
+.cart .n{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--leaf);font:600 11px var(--mono)}
+@media (max-width:900px){.nav ul{display:none}.cart{margin-left:auto}}
+
+/* hero */
+.hero{background:var(--olive);position:relative;overflow:hidden}
+.hero .wrap{position:relative;padding-block:56px 72px;min-height:min(820px,92vh);display:grid;align-content:end}
+.kicker{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#E3EBD9;margin-bottom:24px}
+h1{font:800 clamp(64px,12.6vw,200px)/.82 var(--display);font-variation-settings:"wdth" 75,"opsz" 96;letter-spacing:-.03em;text-transform:uppercase;margin:0;position:relative;z-index:2}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-top:.04em}
+h1 .w>span{display:inline-block}
+h1 .lt{color:var(--leaf);-webkit-text-stroke:0}
+.hero-foot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:36px;position:relative;z-index:2}
+.hero-foot p{max-width:40ch;font:400 18px/1.5 var(--sans);color:#EEF2E8;margin:0}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:16px 26px;font:600 15px var(--sans);text-decoration:none;cursor:pointer;border:none}
+.btn.solid{background:var(--ink);color:var(--bone)}
+.btn.solid:hover{background:var(--bone);color:var(--ink)}
+.btn .dot{width:10px;height:10px;border-radius:50%;background:var(--leaf)}
+
+/* concentric circles from the logo's O */
+.orb{position:absolute;right:clamp(-120px,-4vw,0px);top:clamp(20px,6vw,90px);width:clamp(260px,40vw,600px);aspect-ratio:1;z-index:1}
+.orb .ring{position:absolute;inset:0;border-radius:50%;background:var(--olive-deep)}
+.orb .core{position:absolute;inset:16%;border-radius:50%;overflow:hidden;background:var(--leaf)}
+.orb .core img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:circle(0% at 50% 50%)}
+.orb .core img.on{clip-path:circle(75% at 50% 50%)}
+.orb-label{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);white-space:nowrap;color:#E3EBD9}
+.kicker{position:relative;z-index:2}
+@media (max-width:900px){.orb-label,.kicker span+span{display:none}.hero .wrap{min-height:0;padding-block:300px 48px}.orb{top:24px;right:-40px;width:300px}.hero-foot{grid-template-columns:1fr}}
+
+/* marquee */
+.marquee{background:var(--leaf);color:var(--ink);overflow:hidden;white-space:nowrap;padding-block:18px;border-block:1px solid var(--ink)}
+.track{display:inline-flex;gap:0;will-change:transform}
+.track span{font:700 clamp(28px,3.6vw,48px)/1 var(--display);font-variation-settings:"wdth" 80;text-transform:uppercase;padding-inline:28px;display:inline-flex;align-items:center;gap:56px}
+.track span::after{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--olive);box-shadow:0 0 0 .14em var(--ink) inset}
+
+/* horizontal shelf */
+.shelf{background:var(--ink);position:relative}
+.shelf-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;padding-block:48px 28px}
+h2{font:800 clamp(44px,6.4vw,104px)/.88 var(--display);font-variation-settings:"wdth" 78;text-transform:uppercase;margin:12px 0 0;letter-spacing:-.02em}
+.shelf-head .mono{color:var(--leaf)}
+.rail-outer{overflow:hidden}
+.rail{display:flex;gap:28px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-bottom:96px;width:max-content}
+.item{width:clamp(220px,22vw,320px);flex:none;display:flex;flex-direction:column;gap:14px;perspective:900px}
+.item .cv{aspect-ratio:2/3;border-radius:6px;overflow:hidden;background:var(--ink-2);transform-style:preserve-3d;will-change:transform}
+.item .cv img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.item .no{color:var(--mist)}
+.item h3{font:700 24px/1.05 var(--display);font-variation-settings:"wdth" 85;margin:0;text-wrap:balance}
+.item .au{color:var(--mist);margin:-4px 0 0;font-size:14.5px}
+.item .row{display:flex;justify-content:space-between;align-items:center}
+.ph{font:400 11px var(--mono);color:var(--leaf);border:1px dashed rgba(112,177,44,.6);padding:3px 7px;border-radius:4px}
+.add{border:1px solid var(--bone);background:none;color:var(--bone);border-radius:999px;padding:8px 14px;font:600 13px var(--sans);cursor:pointer;transition:all .25s}
+.add:hover{background:var(--leaf);border-color:var(--leaf);color:var(--ink)}
+@media (max-width:900px){.rail-outer{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.item{scroll-snap-align:start}}
+
+/* sellos list */
+.sellos{background:var(--bone);color:var(--ink);position:relative}
+.sellos .wrap{padding-block:96px}
+.sellos h2{margin-bottom:40px}
+.srow{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;border-top:2px solid var(--ink);padding-block:22px;text-decoration:none;position:relative}
+.srow:last-child{border-bottom:2px solid var(--ink)}
+.srow .name{font:800 clamp(36px,5.4vw,84px)/1 var(--display);font-variation-settings:"wdth" 80;text-transform:uppercase;transition:transform .5s cubic-bezier(.2,.7,.1,1),color .3s}
+.srow:hover .name{transform:translateX(18px);color:var(--olive)}
+.srow .c{font:400 12px var(--mono)}
+.srow .arr{width:52px;height:52px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;transition:all .3s}
+.srow:hover .arr{background:var(--ink);color:var(--leaf)}
+.peek{position:fixed;left:0;top:0;width:180px;aspect-ratio:2/3;pointer-events:none;z-index:30;border-radius:6px;overflow:hidden;opacity:0;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.srow{grid-template-columns:1fr auto}.srow .c{display:none}}
+
+footer{background:var(--olive);padding-block:48px 90px}
+footer .wrap{display:flex;gap:20px 48px;flex-wrap:wrap;justify-content:space-between;align-items:center;color:#EEF2E8;font-size:14px}
+footer img{height:22px;width:auto}
+.flyer{position:fixed;z-index:60;pointer-events:none;border-radius:6px}
+</style>
+</head>
+<body>
+<a class="back" href="index.html">← Direcciones</a>
+<div class="promo">Envíos a toda Venezuela y Latinoamérica · Pago Móvil · Transferencia · Zelle · Binance Pay · PayPal</div>
+<header id="hdr">
+  <nav class="wrap nav" aria-label="Principal">
+    <a href="#" aria-label="Grupo Olivo, inicio"><img src="img/logo-go-blanco.png" alt="Grupo Olivo" width="113" height="24"></a>
+    <ul><li><a href="#libros">Libros</a></li><li><a href="#">Autores</a></li><li><a href="#sellos">Sellos</a></li><li><a href="#">Servicios</a></li><li><a href="#">Concursos</a></li></ul>
+    <button class="cart" id="cart">Carrito <span class="n" id="count">0</span></button>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="orb" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="core" id="core">
+      <img class="on" src="img/fleur.webp" alt=""><img src="img/van-gogh.webp" alt=""><img src="img/soledad.webp" alt=""><img src="img/caso-imposible.webp" alt=""><img src="img/anecdotas.webp" alt="">
+    </div>
+    <div class="orb-label mono" id="orbLabel">Fleur · Florencia Frezza</div>
+  </div>
+  <div class="wrap">
+    <div class="kicker mono"><span>Editorial Grupo Olivo</span><span>Libros de Venezuela al mundo</span></div>
+    <h1><span class="w"><span>Vive</span></span> <span class="w"><span>y</span></span> <span class="w"><span class="lt">crea</span></span><br><span class="w"><span>tu historia</span></span></h1>
+    <div class="hero-foot">
+      <p>Cuando leemos, volvemos a ser niños con una curiosidad gigante por saber y crear. Los libros son esas puertas y ventanas a muchos mundos por descubrir.</p>
+      <a class="btn solid" href="#libros"><span class="dot"></span>Ver los libros</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section class="shelf" id="libros">
+  <div class="wrap shelf-head">
+    <div><div class="mono">Catálogo · 16 títulos</div><h2>Para leer<br>ahora</h2></div>
+    <p class="mono" style="color:var(--mist);max-width:28ch">Desliza. Cada libro, una historia escrita aquí.</p>
+  </div>
+  <div class="rail-outer" id="railOuter"><div class="rail" id="rail"></div></div>
+</section>
+
+<section class="sellos" id="sellos">
+  <div class="wrap">
+    <div class="mono" style="color:var(--olive)">Sellos editoriales</div>
+    <h2>Tres sellos,<br>una casa</h2>
+    <a class="srow" href="#" data-peek="con-sentido"><span class="name">tucoach.go</span><span class="c">Coaching y no ficción</span><span class="arr">→</span></a>
+    <a class="srow" href="#" data-peek="fleur"><span class="name">Alita</span><span class="c">Romance y fantasía</span><span class="arr">→</span></a>
+    <a class="srow" href="#" data-peek="escribir-para-sanar"><span class="name">Reto Escritor</span><span class="c">Testimonios de vida</span><span class="arr">→</span></a>
+    <a class="srow" href="#" data-peek="caso-indefendible"><span class="name">Independientes</span><span class="c">Novela y crónica</span><span class="arr">→</span></a>
+  </div>
+  <div class="peek" id="peek"><img alt="" src="img/con-sentido.webp"></div>
+</section>
+</main>
+<footer><div class="wrap"><img src="img/logo-go-blanco.png" alt="Grupo Olivo"><span>Afiliada a la Cámara Venezolana del Libro desde 2018</span><span>@grupolivo</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const BOOKS=[
+ ["fleur","Fleur","Florencia Frezza"],["van-gogh","Las sombras de Vincent van Gogh","Luis Manuel Marcano"],
+ ["caso-indefendible","Un caso indefendible","José Custodio Sánchez Morante"],["soledad","Soledad, ¿una cura o locura?","Zuleima Virguez"],
+ ["anecdotas","Anécdotas de una viajera del tercer mundo","Lissette Van Der Biest"],["con-sentido","Con sentido","José Espósito"],
+ ["escribir-para-sanar","Escribir para sanar","18 autoras"],["horror-emprender","El horror de emprender","Rafa Solbas"],
+ ["21-preguntas","21 preguntas para conquistarte","Jemmy Lee"],["coletepelo","Historias a Coletepelo","Irene Carrasquero"],
+ ["lider-coach","Líder Coach","Norberto Peña"],["engranaje","Engranaje vital","Francisco Rangel Gómez"],
+ ["alambre","Al cruzar el alambre de púas","Esmeralda Villanueva"],["poder-del-fee","El poder del fee","Jennifer Fernández"],
+ ["por-si-me-muero","Por si me muero sin que lo sepas","María Elena Fernández-Morán Spear"],["caso-imposible","Un caso imposible","José Custodio Sánchez Morante"],
+];
+document.getElementById('rail').innerHTML=BOOKS.map((b,i)=>`<article class="item">
+ <div class="cv"><img src="img/${b[0]}.webp" alt="Portada de ${b[1]}" loading="lazy"></div>
+ <span class="no mono">N.º ${String(i+1).padStart(2,'0')} / ${BOOKS.length}</span>
+ <h3>${b[1]}</h3><p class="au">${b[2]}</p>
+ <div class="row"><span class="ph">US$ [PRECIO]</span><button class="add" data-add>Agregar</button></div></article>`).join('');
+const titles=BOOKS.map(b=>`<span>${b[1]}</span>`).join('');
+document.getElementById('track').innerHTML=titles+titles;
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const wide=matchMedia('(min-width:901px)').matches;
+
+/* orb: cover cycle with circular reveal */
+const imgs=[...document.querySelectorAll('#core img')], lbl=document.getElementById('orbLabel');
+const names=["Fleur · Florencia Frezza","Las sombras de Vincent van Gogh · Luis Manuel Marcano","Soledad, ¿una cura o locura? · Zuleima Virguez","Un caso imposible · José Custodio Sánchez Morante","Anécdotas de una viajera del tercer mundo · Lissette Van Der Biest"];
+let k=0;
+
+if(!reduce&&window.gsap){
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({lerp:.09});
+  lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+
+  gsap.timeline({defaults:{ease:"expo.out"}})
+    .from('h1 .w>span',{yPercent:105,duration:1.3,stagger:.08})
+    .from('.orb .ring',{scale:0,duration:1.4},0.15)
+    .from('.orb .core',{scale:0,duration:1.4},0.3)
+    .from('.kicker, .hero-foot',{y:20,opacity:0,duration:1,stagger:.1},0.6);
+
+  setInterval(()=>{
+    const cur=imgs[k]; k=(k+1)%imgs.length; const nx=imgs[k];
+    gsap.set(nx,{zIndex:2}); gsap.set(cur,{zIndex:1});
+    gsap.fromTo(nx,{clipPath:"circle(0% at 50% 50%)",scale:1.25},{clipPath:"circle(75% at 50% 50%)",scale:1,duration:1.3,ease:"expo.inOut",onComplete:()=>{cur.classList.remove('on');nx.classList.add('on')}});
+    gsap.fromTo(lbl,{y:10,opacity:0},{y:0,opacity:1,duration:.6,delay:.5,onStart:()=>lbl.textContent=names[k]});
+  },3200);
+  gsap.to('.orb',{yPercent:30,rotation:8,ease:"none",scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  /* marquee reacting to scroll velocity */
+  const track=document.getElementById('track'); let x=0, v=1;
+  ScrollTrigger.create({onUpdate:s=>{v=gsap.utils.clamp(-8,8,s.getVelocity()/220)}});
+  gsap.ticker.add(()=>{x-=1+Math.abs(v);v*=.92;const w=track.scrollWidth/2;if(-x>=w)x+=w;track.style.transform=`translateX(${x}px)`});
+
+  /* pinned horizontal shelf (desktop) */
+  if(wide){
+    const rail=document.getElementById('rail');
+    const dist=()=>rail.scrollWidth-innerWidth;
+    const tween=gsap.to(rail,{x:()=>-dist(),ease:"none",scrollTrigger:{trigger:'.shelf',start:'top 70px',end:()=>'+='+dist(),pin:'.shelf',scrub:.8,invalidateOnRefresh:true,anticipatePin:1}});
+    gsap.utils.toArray('.item').forEach(it=>{
+      const cv=it.querySelector('.cv'), im=it.querySelector('img');
+      gsap.fromTo(cv,{rotateY:-18},{rotateY:18,ease:"none",scrollTrigger:{trigger:it,containerAnimation:tween,start:'left right',end:'right left',scrub:true}});
+      gsap.fromTo(im,{xPercent:-6},{xPercent:6,ease:"none",scrollTrigger:{trigger:it,containerAnimation:tween,start:'left right',end:'right left',scrub:true}});
+    });
+  }
+  ScrollTrigger.create({trigger:'.shelf',start:'top 70px',end:'bottom 70px',toggleClass:{targets:'#hdr',className:'dark'}});
+  gsap.from('.srow',{x:-40,duration:1,stagger:.08,ease:"expo.out",scrollTrigger:{trigger:'.sellos',start:'top 70%'}});
+}
+
+/* cursor peek over sellos */
+const peek=document.getElementById('peek'), pimg=peek.querySelector('img');
+if(fine&&!reduce&&window.gsap){
+  const qx=gsap.quickTo(peek,'x',{duration:.5,ease:"power3"}), qy=gsap.quickTo(peek,'y',{duration:.5,ease:"power3"});
+  document.querySelectorAll('.srow').forEach(r=>{
+    r.addEventListener('mouseenter',()=>{pimg.src=`img/${r.dataset.peek}.webp`;gsap.to(peek,{opacity:1,scale:1,rotation:-6,duration:.4})});
+    r.addEventListener('mouseleave',()=>gsap.to(peek,{opacity:0,scale:.8,rotation:0,duration:.3}));
+    r.addEventListener('mousemove',e=>{qx(e.clientX+30);qy(e.clientY-140)});
+  });
+}
+
+/* fly to cart */
+const count=document.getElementById('count'), cartBtn=document.getElementById('cart'); let n=0;
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-add]'); if(!b) return; n++;
+  const img=b.closest('.item').querySelector('img');
+  if(reduce||!window.gsap){count.textContent=n;return}
+  const r=img.getBoundingClientRect(), c=cartBtn.getBoundingClientRect();
+  const fl=img.cloneNode(); fl.className='flyer'; Object.assign(fl.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',objectFit:'cover'});
+  document.body.appendChild(fl);
+  gsap.timeline({onComplete:()=>{fl.remove();count.textContent=n;gsap.fromTo(count,{scale:1.8,backgroundColor:'#70B12C',color:'#1C1C1B'},{scale:1,backgroundColor:'#1C1C1B',color:'#70B12C',duration:.7,ease:"elastic.out(1,.35)"})}})
+    .to(fl,{borderRadius:'50%',scale:.5,duration:.35,ease:"power2.out"})
+    .to(fl,{x:c.left+c.width/2-r.left-r.width/2,y:c.top+c.height/2-r.top-r.height/2,scale:.06,duration:.7,ease:"power3.in"});
+});
+</script>
+</body>
+</html>
