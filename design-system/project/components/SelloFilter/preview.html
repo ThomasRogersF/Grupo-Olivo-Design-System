@@ -1,0 +1,13 @@
+<!-- @dsCard group="Navegación" height=120 subtitle="Filtro del catálogo por sello" -->
+<div class="go-root" style="padding:24px;background:var(--surface);min-height:100%">
+<div class="go-filter" role="group" aria-label="Filtrar por sello" id="f">
+  <button class="go-filter__tab" aria-pressed="true">Todos<span class="go-filter__count">16</span></button>
+  <button class="go-filter__tab" aria-pressed="false">tucoach.go<span class="go-filter__count">4</span></button>
+  <button class="go-filter__tab" aria-pressed="false">Alita<span class="go-filter__count">2</span></button>
+  <button class="go-filter__tab" aria-pressed="false">Reto Escritor<span class="go-filter__count">6</span></button>
+  <button class="go-filter__tab" aria-pressed="false">Independientes<span class="go-filter__count">4</span></button>
+</div>
+</div>
+<script>
+const t=[...document.querySelectorAll('#f button')];t.forEach(x=>x.addEventListener('click',()=>t.forEach(y=>y.setAttribute('aria-pressed',y===x))));
+</script>

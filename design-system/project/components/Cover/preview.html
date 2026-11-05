@@ -1,0 +1,36 @@
+<!-- @dsCard height=300 -->
+<div class="cv">
+<style>
+.cv{position:relative;width:960px;height:300px;background:var(--surface);overflow:hidden}
+.cv svg{position:absolute;inset:0}
+.black{fill:var(--brand-black)} .green{fill:var(--brand-green)} .sunk{fill:var(--surface-sunk)}
+.ring{fill:var(--brand-green)} .ring-on-green{fill:var(--brand-black)} .core{fill:var(--brand-leaf)}
+.hair{stroke:var(--rule);stroke-width:1}
+[data-theme="dark"] .black{fill:var(--ink)}
+.txt{position:absolute;left:40px;bottom:40px;max-width:420px}
+.name{font:400 88px/.95 var(--font-display);letter-spacing:-.02em;color:var(--ink)}
+.tag{font:400 14px/1.4 var(--font-sans);color:var(--ink-muted);margin-top:14px}
+</style>
+  <!--
+    blocks: brand-black slab 192×300 (bleeds top+bottom), brand-green 144×192 (space-9 × 2·space-9), surface-sunk 144×96, brand-leaf only as the centres of the discs
+    arrangement: one tall black slab with satellites, flush to the right edge, like a book spine and its cover
+    pattern: literal motif — the two «O» of the logo (brand-green ring, brand-leaf centre) as discs, plus three hairline `rule` lines: the colofón's filetes; editorial serif system with hairlines and a logo motif
+    steps & radii: space-9 (96), space-7 (48), space-6 (32), space-5 (24); radius-book on the green block corners; discs = half their side
+  -->
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <rect class="sunk" x="480" y="204" width="144" height="96"/>
+    <rect class="green" x="624" y="0" width="144" height="192" rx="2"/>
+    <rect class="black" x="768" y="0" width="192" height="300"/>
+    <line class="hair" x1="480" y1="48" x2="624" y2="48"/>
+    <line class="hair" x1="480" y1="96" x2="624" y2="96"/>
+    <line class="hair" x1="480" y1="144" x2="624" y2="144"/>
+    <circle class="ring" cx="816" cy="96" r="32"/><circle class="core" cx="816" cy="96" r="14"/>
+    <circle class="ring" cx="888" cy="96" r="32"/><circle class="core" cx="888" cy="96" r="14"/>
+    <circle class="ring-on-green" cx="696" cy="252" r="24"/><circle class="core" cx="696" cy="252" r="10"/>
+  </svg>
+  <div class="txt">
+    <div class="name">Grupo Olivo</div>
+    <div class="tag">Libros pensados en su lector.</div>
+  </div>
+</div>
+<script>/* portada estática */</script>

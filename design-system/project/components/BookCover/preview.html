@@ -1,0 +1,15 @@
+<!-- @dsCard group="Libros" height=380 subtitle="Portada con lomo y sombra de libro" -->
+<div class="go-root" style="padding:24px;background:var(--surface);min-height:100%">
+<div style="display:flex;gap:48px;align-items:end;flex-wrap:wrap;perspective:1200px">
+  <div class="go-cover" style="width:180px"><img src="/_blob/2eaed7614eeb2f64bef8d77888ee90c1" alt="Portada de Fleur"></div>
+  <div class="go-cover go-cover--tilt" id="t" style="width:200px"><img src="/_blob/929e372a8a284c01de17e8c443e22b59" alt="Portada de Soledad, ¿una cura o locura?"><span class="go-cover__glare"></span></div>
+  <p class="go-help" style="max-width:200px">Pasa el cursor sobre la segunda: inclinación 3D con brillo.</p>
+</div>
+</div>
+<script>
+const t=document.getElementById('t');
+if(matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+ t.addEventListener('pointermove',e=>{const r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+  t.style.transform=`rotateY(${(px-.5)*16}deg) rotateX(${(.5-py)*12}deg)`;t.style.setProperty('--gx',px*100+'%');t.style.setProperty('--gy',py*100+'%')});
+ t.addEventListener('pointerleave',()=>t.style.transform='');}
+</script>

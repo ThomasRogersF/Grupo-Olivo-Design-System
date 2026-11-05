@@ -1,0 +1,159 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-05T01:12:23Z"
+ },
+ "title": "Grupo Olivo",
+ "namespace": "GrupoOlivo",
+ "libraries": [],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Portadas",
+  "Autores"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "m",
+   "order": [
+    "grupo-olivo-color.png",
+    "grupo-olivo-mono.png",
+    "grupo-olivo-negativo.png",
+    "sello-tucoach-go.png",
+    "sello-alita.png",
+    "sello-reto-escritor.png",
+    "sello-reto-escritor-negativo.png"
+   ],
+   "files": {
+    "grupo-olivo-color.png": {
+     "name": "grupo-olivo-color.png",
+     "blob": "d9d48f38aeeacf0bc207e07c793e7e59",
+     "size": 7538,
+     "type": "image/png"
+    },
+    "grupo-olivo-mono.png": {
+     "name": "grupo-olivo-mono.png",
+     "blob": "21dc42147d837c3b272d690d99b7dd7d",
+     "size": 6381,
+     "type": "image/png"
+    },
+    "grupo-olivo-negativo.png": {
+     "name": "grupo-olivo-negativo.png",
+     "blob": "2c2096ea2e9bf74534983273909976f8",
+     "size": 6002,
+     "type": "image/png"
+    },
+    "sello-tucoach-go.png": {
+     "name": "sello-tucoach-go.png",
+     "blob": "8907a5af09fe497c056a878bf386cd22",
+     "size": 4343,
+     "type": "image/png"
+    },
+    "sello-alita.png": {
+     "name": "sello-alita.png",
+     "blob": "fedcd72a8b63716cf63399926eb7a835",
+     "size": 4867,
+     "type": "image/png"
+    },
+    "sello-reto-escritor.png": {
+     "name": "sello-reto-escritor.png",
+     "blob": "8b39413eedf31c7b66c5434d57d53c79",
+     "size": 8005,
+     "type": "image/png"
+    },
+    "sello-reto-escritor-negativo.png": {
+     "name": "sello-reto-escritor-negativo.png",
+     "blob": "d52ee91840d65a629f3a8f966ea0a8b0",
+     "size": 5490,
+     "type": "image/png"
+    }
+   }
+  },
+  "Portadas": {
+   "name": "Portadas",
+   "tile": "s",
+   "order": [
+    "portada-fleur.webp",
+    "portada-soledad.webp",
+    "portada-anecdotas.webp",
+    "portada-con-sentido.webp",
+    "portada-caso-indefendible.webp",
+    "portada-escribir-para-sanar.webp"
+   ],
+   "files": {
+    "portada-fleur.webp": {
+     "name": "portada-fleur.webp",
+     "blob": "2eaed7614eeb2f64bef8d77888ee90c1",
+     "size": 64022,
+     "type": "image/webp"
+    },
+    "portada-soledad.webp": {
+     "name": "portada-soledad.webp",
+     "blob": "929e372a8a284c01de17e8c443e22b59",
+     "size": 85588,
+     "type": "image/webp"
+    },
+    "portada-anecdotas.webp": {
+     "name": "portada-anecdotas.webp",
+     "blob": "27a73bcd6e4a758e3df1601a94210217",
+     "size": 52056,
+     "type": "image/webp"
+    },
+    "portada-con-sentido.webp": {
+     "name": "portada-con-sentido.webp",
+     "blob": "15bd38ba372bfc63f0df2793a54ed480",
+     "size": 26814,
+     "type": "image/webp"
+    },
+    "portada-caso-indefendible.webp": {
+     "name": "portada-caso-indefendible.webp",
+     "blob": "43f0bf3371c474d1ae7efb9813accd99",
+     "size": 21572,
+     "type": "image/webp"
+    },
+    "portada-escribir-para-sanar.webp": {
+     "name": "portada-escribir-para-sanar.webp",
+     "blob": "9b000595eeec7836864a88c00c0d324e",
+     "size": 76500,
+     "type": "image/webp"
+    }
+   }
+  },
+  "Autores": {
+   "name": "Autores",
+   "tile": "s",
+   "order": [
+    "autora-florencia-frezza.webp",
+    "autor-jose-esposito.webp"
+   ],
+   "files": {
+    "autora-florencia-frezza.webp": {
+     "name": "autora-florencia-frezza.webp",
+     "blob": "039b040cb671c051672dfda10f9d6fce",
+     "size": 14064,
+     "type": "image/webp"
+    },
+    "autor-jose-esposito.webp": {
+     "name": "autor-jose-esposito.webp",
+     "blob": "e2b6557e52df82e5e012439075cda593",
+     "size": 16054,
+     "type": "image/webp"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Claude",
+  "at": "2026-11-05T01:12:23Z",
+  "via": "Claude (sesión en la nube)",
+  "note": "Sistema inicial desde la dirección A «Colofón»: tokens, 23 componentes, guía de marca y logos."
+ }
+}
