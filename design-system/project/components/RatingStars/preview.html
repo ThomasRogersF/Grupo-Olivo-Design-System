@@ -1,0 +1,10 @@
+<!-- @dsCard group="Comunidad" height=150 subtitle="Calificación de solo lectura y para votar" -->
+<div class="go-root" style="padding:24px;background:var(--surface);min-height:100%">
+<div style="display:grid;gap:22px">
+  <span class="go-stars" aria-label="4,5 de 5 estrellas, 12 reseñas (ejemplo)"><span class="go-stars__row" style="--value:4.5" aria-hidden="true"><span class="go-stars__fill"></span></span>4,5 · 12 reseñas <em style="font-style:normal;opacity:.7">(ejemplo)</em></span>
+  <div class="go-stars go-stars--input" role="group" aria-label="Tu calificación" id="rate"><button aria-pressed="true" aria-label="1 estrella">★</button><button aria-pressed="true" aria-label="2 estrellas">★</button><button aria-pressed="true" aria-label="3 estrellas">★</button><button aria-pressed="false" aria-label="4 estrellas">★</button><button aria-pressed="false" aria-label="5 estrellas">★</button></div>
+</div>
+</div>
+<script>
+const b=[...document.querySelectorAll('#rate button')];b.forEach((x,i)=>x.addEventListener('click',()=>b.forEach((y,j)=>y.setAttribute('aria-pressed',j<=i))));
+</script>
